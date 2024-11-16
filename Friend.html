@@ -1,65 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>game</title>
+    <link rel="stylesheet" href="js.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>game</title>
-  <link rel="stylesheet" href="Js.css">
-</head>
-
-<body class="secondpage">
-  <div>
-    <h1>Stone Paper Scissors</h1>
-  </div>
-  <div class="choiceall">
-
-    <div class="choice" id="stone">
-      <img class="img-option" src="stone.jpg" />
+  <body class="secondpage">
+    <div>
+      <h1>Stone Paper Scissors</h1>
     </div>
-    <div class="choice" id="paper">
-      <img class="img-option" src="paper.jpg" />
+    <div class="choiceall">
+      <div class="choice" id="stone">
+        <img class="img-option" src="stone.jpg" />
+      </div>
+      <div class="choice" id="paper">
+        <img class="img-option" src="paper.jpg" />
+      </div>
+      <div class="choice" id="scissors">
+        <img class="img-option" src="scissors.jpg" />
+      </div>
     </div>
-    <div class="choice" id="scissors">
-      <img class="img-option" src="scissors.jpg" />
+
+    <div class="score-board">
+      <div class="score">
+        <p id="you">0</p>
+        <p>player1</p>
+      </div>
+      <div class="score">
+        <p id="player2">0</p>
+        <p>player2</p>
+      </div>
     </div>
-  </div>
-
-  <div class="score-board">
-    <div class="score">
-      <p id="you">
-        0
-      </p>
-      <p>
-        player1
-      </p>
+    <div class="anschosse">
+      <p id="youchoose">player1:-......</p>
+      <p id="player2choose">player2:-....</p>
     </div>
-    <div class="score">
-      <p id="player2">
-        0
-      </p>
-      <p>
-        player2
-      </p>
-
-
+    <div class="msg-contaner">
+      <p id="msg">play your move</p>
     </div>
-  </div>
-  <div class="anschosse">
-    <p id="youchoose">
-      player1:-......
-    </p>
-    <p id="player2choose">
-      player2:-....
-    </p>
-  </div>
-  <div class="msg-contaner">
-    <p id="msg">
-      play your move
-    </p>
-  </div>
-  <script src="App.js"></script>
-
-</body>
-
+    <script src="app.js"></script>
+  </body>
 </html>
