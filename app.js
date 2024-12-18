@@ -2,51 +2,49 @@ let yourscore = 0;
 let compscore = 0;
 
 const choices = document.querySelectorAll(".choice");
-const msg = document.querySelector("#msg")
-const yourpara = document.querySelector("#you")
-const comppara = document.querySelector("#comp")
-const youchoose = document.querySelector("#youchoose")
-const compchoose = document.querySelector("#compchoose")
+const msg = document.querySelector("#msg");
+const yourpara = document.querySelector("#you");
+const comppara = document.querySelector("#comp");
+const youchoose = document.querySelector("#youchoose");
+const compchoose = document.querySelector("#compchoose");
 
 const matchdraw = () => {
-  msg.innerText = "match draw play again.🤝"
-  msg.style.background = "#070128"
-}
+  msg.innerText = "match draw play again.🤝";
+  msg.style.background = "#e49013";
+};
 
 const showwineer = (whichwin) => {
   if (whichwin) {
     yourscore++;
-    yourpara.innerText = yourscore
+    yourpara.innerText = yourscore;
 
-    console.log("youwin")
-    msg.innerText = "you win!🏆"
-    msg.style.background = "green"
+    console.log("youwin");
+    msg.innerText = "you win!🏆";
+    msg.style.background = "green";
   } else {
     compscore++;
-    comppara.innerText = compscore
-    console.log("you loose")
-    msg.innerText = "you loose.😑"
-    msg.style.background = "red"
+    comppara.innerText = compscore;
+    console.log("you loose");
+    msg.innerText = "you loose.😑";
+    msg.style.background = "red";
   }
-}
+};
 
 // generate compchoice
 const gecompchoice = () => {
-  const options = ["stone",
-    "paper",
-    "scissors"]
-  const randomIdx = Math.floor(Math.random() * 3)
+  const options = ["stone", "paper", "scissors"];
+  const randomIdx = Math.floor(Math.random() * 3);
   return options[randomIdx];
-}
+};
 
 //userchoice
 const playgame = (userchoice) => {
   //compchoice
   const compchoice = gecompchoice();
-  compchoose.innerText = `comp:-${compchoice}`
+  compchoose.innerText = `comp:-${compchoice}`;
 
   if (userchoice === compchoice) {
-    matchdraw()
+    matchdraw();
   } else {
     let userwin = true;
     if (userchoice === "paper") {
@@ -58,13 +56,13 @@ const playgame = (userchoice) => {
     }
     showwineer(userwin);
   }
-}
+};
 
 choices.forEach((cho) => {
   cho.addEventListener("click", () => {
-    const userchoice = cho.getAttribute('id');
-    youchoose.innerText = `you:-${userchoice}`
+    const userchoice = cho.getAttribute("id");
+    youchoose.innerText = `you:-${userchoice}`;
 
-    playgame(userchoice)
+    playgame(userchoice);
   });
 });

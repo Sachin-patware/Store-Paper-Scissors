@@ -5,6 +5,7 @@
   text-align: center;
   font-family: serif;
 }
+
 /* font page css */
 .firstpage {
   h1 {
@@ -13,11 +14,10 @@
     height: 5rem;
     line-height: 5rem;
   }
+
   .backimg {
-    background-image: linear-gradient(
-        rgba(225, 225, 225, 0.3),
-        rgba(225, 225, 225, 0.3)
-      ),
+    background-image: linear-gradient(rgba(225, 225, 225, 0.3),
+        rgba(225, 225, 225, 0.3)),
       url("background2.jpg");
     width: 100%;
     height: 100vh;
@@ -28,38 +28,51 @@
     justify-content: center;
     align-items: center;
   }
-
+  .butt{
+    border-radius:10px;
+    background-color: #d8e42e;
+  }
   button {
-    background: #fcc438;
+    background: #d8e42e;
     color: black;
     font-weight: 600;
     font-size: 2.5rem;
     height: 70px;
     width: 30rem;
     border: 3px solid black;
-    border-radius: 5px;
+    border-radius: 40px;
     margin-bottom: 4rem;
   }
 }
+
 .secondpage {
+  .backimgcomp{
+    background-image: url("compbackimg.jpg");
+    width: 100;
+    height: 100vh;
+  }
   h1 {
     background-color: #070128;
     color: #ffff;
     height: 5rem;
     line-height: 5rem;
   }
+  
   .choiceall {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    margin-top: 7rem;
+    position: relative;
+    top:100px;
   }
+
   .img-option {
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
   }
+
   .choice {
     height: 215px;
     border-radius: 50%;
@@ -67,27 +80,36 @@
     justify-content: center;
     align-items: center;
   }
+
   img:hover {
     opacity: 0.3;
   }
+
   .choice:hover {
     cursor: poniter;
     border: 8px solid #070128;
   }
+
   .score-board {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 7rem;
-    margin-top: 3rem;
+    margin-top: 15rem;
     font-size: 2rem;
   }
+
   #you,
   #comp {
     font-size: 3rem;
+    color:white;
   }
+   p:nth-child(2){
+       color:white;
+  }
+
   .anschosse {
-    color: #000000;
+    color: #dad1d1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,15 +117,19 @@
     margin-top: 3rem;
     font-size: 2rem;
   }
+
   .msg-contaner {
     margin: 4rem 0;
+    color:white;
   }
+
   #msg {
     font-size: 2rem;
-    background-color: #070128;
-    color: #ffff;
+    background-color: #c5ee0dc9;
+    color: #1f1111;
+    font-weight: 900;
     display: inline;
-    padding: 1rem;
+    padding: 1.3rem;
     border-radius: 1rem;
   }
 }
