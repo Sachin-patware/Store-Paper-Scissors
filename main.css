@@ -11,7 +11,7 @@
   h1 {
     background-color: #070128;
     color: #ffff;
-    height: 5rem;
+    height: 10vh;
     line-height: 5rem;
   }
 
@@ -49,7 +49,7 @@
   .backimgcomp{
     background-image: url("compbackimg.jpg");
     width: 100;
-    height: 100vh;
+    height:90vh;
   }
   h1 {
     background-color: #070128;
