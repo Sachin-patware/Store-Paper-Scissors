@@ -12,7 +12,7 @@
     background-color: #070128;
     color: #ffff;
     height: 10vh;
-    line-height: 5rem;
+    line-height:5rem;
   }
 
   .backimg {
@@ -20,7 +20,7 @@
         rgba(225, 225, 225, 0.3)),
       url("background2.jpg");
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -54,7 +54,7 @@
   h1 {
     background-color: #070128;
     color: #ffff;
-    height: 5rem;
+    height:10vh;
     line-height: 5rem;
   }
   
@@ -64,7 +64,7 @@
     align-items: center;
     gap: 3rem;
     position: relative;
-    top:100px;
+    top:80px;
   }
 
   .img-option {
@@ -95,7 +95,7 @@
     justify-content: center;
     align-items: center;
     gap: 7rem;
-    margin-top: 15rem;
+    margin-top: 11rem;
     font-size: 2rem;
   }
 
@@ -129,7 +129,7 @@
     color: #1f1111;
     font-weight: 900;
     display: inline;
-    padding: 1.3rem;
+    padding: 1rem;
     border-radius: 1rem;
   }
 }
