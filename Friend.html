@@ -1,45 +1,236 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>game</title>
-    <link rel="stylesheet" href="main.css" />
-  </head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stone Paper Scissors</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
 
-  <body class="secondpage">
+      h1 {
+        margin: 0;
+        background-color: #070128;
+        color: #ffff;
+        height: 10vh;
+        line-height: 5rem;
+      }
+
+      .game-container {
+        width: 100%;
+        height: 90vh;
+        background-image: url("back_imd_multiplayer.avif");
+
+  
+      }
+
+      .choices {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .choice img {
+        width: 140px;
+        /* height: 140px; */
+        cursor: pointer;
+        transition: transform 0.3s;
+        border-radius: 50%;
+      }
+
+      .choice img:hover {
+        transform: scale(1.2);
+      }
+      .player-container h2{
+        color: rgb(231, 192, 19);
+        
+      }
+
+      .result {
+        /* margin-top:10px; */
+        font-size: 1.8rem;
+        color: #e5f506;
+        padding: 3px 8px;
+        border: 1px solid black;
+        border-radius:9px;
+        
+      }
+     
+      .scores {
+        color: rgb(9, 241, 9);
+        font-size:2rem;
+        font-weight: 700;
+        padding:40px;
+        display: flex;
+        justify-content: space-around;
+        /* margin-bottom: 20px; */
+      }
+      
+        .result_restart{
+          margin-top: 30px;
+          display: flex;
+          justify-content: center;
+    
+        }
+        .buttons button {
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 15px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            box-shadow: 4px 5px 4px #575151;
+            position: relative;
+            bottom: 0;
+            right: 0;
+        }
+
+        .buttons button:hover {
+            background-color: #0056b3;
+            
+        }
+        .div_turn{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .turn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color:#007BFF ;
+          height:50px;
+          width:200px;
+          color:white;
+            font-size:1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            border: 2px solid black;
+            border-radius:15px;
+           
+          
+        }
+    </style>
+  </head>
+  <body>
     <div>
       <h1>Stone Paper Scissors</h1>
     </div>
-    <div class="choiceall">
-      <div class="choice" id="stone">
-        <img class="img-option" src="stone.jpg" />
+    <div class="game-container">
+      <div class="scores">
+        <div id="player1Score">Player 1 Score: 0</div>
+        <div id="player2Score">Player 2 Score: 0</div>
       </div>
-      <div class="choice" id="paper">
-        <img class="img-option" src="paper.jpg" />
-      </div>
-      <div class="choice" id="scissors">
-        <img class="img-option" src="scissors.jpg" />
-      </div>
-    </div>
+      <div class="div_turn">
+      <div class="turn" id="turnIndicator">Player 1's Turn</div></div>
 
-    <div class="score-board">
-      <div class="score">
-        <p id="you">0</p>
-        <p>player1</p>
+      <div id="player1" class="player-container">
+        <div><h2>Player 1</h2></div>
+        
+        <div class="choices">
+          <div class="choice" onclick="setChoice('Player 1', 'Stone')">
+            <img src="stone.jpg" alt="Stone" />
+          </div>
+          <div class="choice" onclick="setChoice('Player 1', 'Paper')">
+            <img src="paper.jpg" alt="Paper" />
+          </div>
+          <div class="choice" onclick="setChoice('Player 1', 'Scissors')">
+            <img src="scissors.jpg" alt="Scissors" />
+          </div>
+        </div>
       </div>
-      <div class="score">
-        <p id="player2">0</p>
-        <p>player2</p>
+
+      <div id="player2" class="player-container">
+        <div><h2>Player 2</h2>
+        <div class="choices">
+          <div class="choice" onclick="setChoice('Player 2', 'Stone')">
+            <img src="stone.jpg" alt="Stone" />
+          </div>
+          <div class="choice" onclick="setChoice('Player 2', 'Paper')">
+            <img src="paper.jpg" alt="Paper" />
+          </div>
+          <div class="choice" onclick="setChoice('Player 2', 'Scissors')">
+            <img src="scissors.jpg" alt="Scissors" />
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="anschosse">
-      <p id="youchoose">player1:-......</p>
-      <p id="player2choose">player2:-....</p>
-    </div>
-    <div class="msg-contaner">
-      <p id="msg">play your move</p>
-    </div>
-    <script src="app.js"></script>
-  </body>
+
+      <div class="result_restart">
+        <span class="result" id="result">result</span>
+
+        <div class="buttons">
+            <button onclick="restartGame()">Restart Game</button>
+        </div></div>
+</div>
+
+<script>
+  const playerChoices = {};
+  let scores = { "Player 1": 0, "Player 2": 0 };
+  let currentPlayer = "Player 1";
+
+  function setChoice(player, choice) {
+      if (player !== currentPlayer) return;
+
+      playerChoices[player] = choice;
+      document.getElementById("turnIndicator").innerText = `${currentPlayer === "Player 1" ? "Player 2's Turn" : "Determining Winner"}`;
+
+      if (currentPlayer === "Player 1") {
+          currentPlayer = "Player 2";
+      } else {
+          currentPlayer = "Player 1";
+          determineWinner();
+      }
+  }
+
+  function determineWinner() {
+      const player1Choice = playerChoices["Player 1"];
+      const player2Choice = playerChoices["Player 2"];
+
+      let result = "";
+
+      if (player1Choice === player2Choice) {
+          result = `It's a draw! Both chose ${player1Choice}.`;
+      } else if (
+          (player1Choice === "Stone" && player2Choice === "Scissors") ||
+          (player1Choice === "Paper" && player2Choice === "Stone") ||
+          (player1Choice === "Scissors" && player2Choice === "Paper")
+      ) {
+          result = `Player 1 wins! ${player1Choice} beats ${player2Choice}.`;
+          scores["Player 1"]++;
+      } else {
+          result = `Player 2 wins! ${player2Choice} beats ${player1Choice}.`;
+          scores["Player 2"]++;
+      }
+
+      document.getElementById("result").innerText = result;
+      document.getElementById(
+          "player1Score"
+      ).innerText = `Player 1 Score: ${scores["Player 1"]}`;
+      document.getElementById(
+          "player2Score"
+      ).innerText = `Player 2 Score: ${scores["Player 2"]}`;
+
+      document.getElementById("turnIndicator").innerText = "Player 1's Turn";
+      playerChoices["Player 1"] = null;
+      playerChoices["Player 2"] = null;
+  }
+
+
+  function restartGame() {
+      scores = { "Player 1": 0, "Player 2": 0 };
+      document.getElementById("player1Score").innerText = `Player 1 Score: 0`;
+      document.getElementById("player2Score").innerText = `Player 2 Score: 0`;
+  }
+</script>
+</body>
 </html>

@@ -10,7 +10,7 @@ const compchoose = document.querySelector("#compchoose");
 
 const matchdraw = () => {
   msg.innerText = "match draw play again.🤝";
-  msg.style.background = "#e49013";
+  msg.style.background = "none";
 };
 
 const showwineer = (whichwin) => {

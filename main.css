@@ -6,7 +6,7 @@
   font-family: serif;
 }
 
-/* font page css */
+
 .firstpage {
   h1 {
     background-color: #070128;
@@ -45,91 +45,5 @@
   }
 }
 
-.secondpage {
-  .backimgcomp{
-    background-image: url("compbackimg.jpg");
-    width: 100;
-    height:90vh;
-  }
-  h1 {
-    background-color: #070128;
-    color: #ffff;
-    height:10vh;
-    line-height: 5rem;
-  }
-  
-  .choiceall {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    position: relative;
-    top:80px;
-  }
 
-  .img-option {
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  .choice {
-    height: 215px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  img:hover {
-    opacity: 0.3;
-  }
-
-  .choice:hover {
-    cursor: poniter;
-    border: 8px solid #070128;
-  }
-
-  .score-board {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 7rem;
-    margin-top: 11rem;
-    font-size: 2rem;
-  }
-
-  #you,
-  #comp {
-    font-size: 3rem;
-    color:white;
-  }
-   p:nth-child(2){
-       color:white;
-  }
-
-  .anschosse {
-    color: #dad1d1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    margin-top: 3rem;
-    font-size: 2rem;
-  }
-
-  .msg-contaner {
-    margin: 4rem 0;
-    color:white;
-  }
-
-  #msg {
-    font-size: 2rem;
-    background-color: #c5ee0dc9;
-    color: #1f1111;
-    font-weight: 900;
-    display: inline;
-    padding: 1rem;
-    border-radius: 1rem;
-  }
-}
+   
